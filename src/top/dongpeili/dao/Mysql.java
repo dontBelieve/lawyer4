@@ -62,6 +62,67 @@ public class Mysql {
 			return count;
 		}
 	}
+	
+	/**
+	 * @summary 批量增删改查
+	 * @date 2017年11月25日
+	 * @return int
+	 * @author dpl
+	 */
+	public int batchExecuteUpdate(String sql) {
+		return 0;
+	}
+	
+	/**
+	 * @summary 
+	 * @date 2017年11月30日
+	 * @return List<Map<String,String>>
+	 * @author dpl
+	 */
+	@SuppressWarnings("finally")
+	public List<Map<String, String>> executeQuery(String sql, List<String> l) {
+		DataSource ds;
+		Connection conn = null;
+		Statement stmt = null;
+		ResultSet rs = null;
+		Map<String, String> map = new HashMap<String, String>();
+		List<Map<String, String>> list = new ArrayList<Map<String, String>>();
+		try {
+			ds = new Pool().getDataSource();
+			conn = ds.getConnection();
+			conn.setAutoCommit(false);
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sql);
+			while(rs.next()) {
+				for(int j = 0; j < l.size(); j++) {
+					String str = l.get(j);
+					map.put(str, rs.getString(str));
+				}
+				list.add(map);
+			}
+			conn.commit();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (stmt != null) {
+				try {
+					stmt.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+				stmt = null;
+			}
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException sqlex) {
+					// ignore, as we can't do anything about it here
+				}
+				conn = null;
+			}
+			return list;
+		}
+	}
 
 	/**
 	 * @summary 查询

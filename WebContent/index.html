@@ -17,10 +17,15 @@ button {
 		<button id="b3">删()</button>
 		<button id="b2">改()</button>
 		<button id="b4">查()</button>
+		<button id="b5">测试新增user()</button>
+		<button id="b6">测试查询user()</button>
+		<button id="b7">测试给浏览器设置cookie</button>
+		<button id="b8">测试获取浏览器cookie</button>
+		
 	</div>
 </body>
 <script>
-	$(function(){
+	$(function() {
 		$("#b1").on("click", function() {
 			$.ajax({
 				url : "./apartment",
@@ -31,8 +36,7 @@ button {
 				type : "post"
 			})
 		});
-		
-		
+
 		$("#b2").on("click", function() {
 			$.ajax({
 				url : "./apartment",
@@ -43,7 +47,7 @@ button {
 				type : "post"
 			})
 		});
-		
+
 		$("#b3").on("click", function() {
 			$.ajax({
 				url : "./apartment",
@@ -54,7 +58,7 @@ button {
 				type : "post"
 			})
 		});
-		
+
 		$("#b4").on("click", function() {
 			$.ajax({
 				url : "./apartment",
@@ -63,8 +67,65 @@ button {
 					"oper" : "query"
 				},
 				type : "post",
-				success : function(data){
-					alert(1);
+				success : function(data) {
+					alert(data.name);
+				}
+			})
+		});
+		$("#b5").on("click", function() {
+			$.ajax({
+				url : "./user",
+				async : false,
+				data : {
+					"oper" : "insert",
+					"name" : "董佩力",
+					"password" : "123456"
+				},
+				type : "post",
+				success : function(data) {
+					alert("已返回");
+				}
+			})
+		});
+		$("#b6").on("click", function() {
+			$.ajax({
+				url : "./user",
+				async : false,
+				data : {
+					"oper" : "query",
+					"name" : "董佩力"
+				},
+				type : "post",
+				success : function(data) {
+					alert("已返回");
+				}
+			})
+		});
+		$("#b7").on("click", function() {
+			$.ajax({
+				url : "./cookie",
+				async : false,
+				data : {
+					"oper" : "set",
+					"name" : "董佩力",
+					"password" : "123456"
+				},
+				type : "post",
+				success : function(data) {
+					alert("已返回");
+				}
+			})
+		});
+		$("#b8").on("click", function() {
+			$.ajax({
+				url : "./cookie",
+				async : false,
+				data : {
+					"oper" : "get",
+				},
+				type : "post",
+				success : function(data) {
+					alert("已返回");
 				}
 			})
 		});
