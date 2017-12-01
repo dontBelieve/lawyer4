@@ -20,7 +20,7 @@ import top.dongpeili.tool.Request;
  * @author dpl
  */
 @WebServlet("/cookie")
-public class TestCookie extends HttpServlet {
+public class CookieTest extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 

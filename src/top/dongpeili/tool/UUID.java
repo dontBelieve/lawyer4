@@ -1,6 +1,5 @@
 package top.dongpeili.tool;
 
-
 public class UUID {
 
 	/**
@@ -9,9 +8,9 @@ public class UUID {
 	 * @return String
 	 * @author dpl
 	 */
-	public String getUUID() {
+	public static String getUUID() {
 		String uuid = java.util.UUID.randomUUID().toString();
 		return uuid;
 	}
-	
+
 }

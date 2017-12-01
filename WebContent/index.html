@@ -21,7 +21,9 @@ button {
 		<button id="b6">测试查询user()</button>
 		<button id="b7">测试给浏览器设置cookie</button>
 		<button id="b8">测试获取浏览器cookie</button>
-		
+		<button id="b9">东东session</button>
+		<button id="b10">兵兵session</button>
+
 	</div>
 </body>
 <script>
@@ -121,7 +123,35 @@ button {
 				url : "./cookie",
 				async : false,
 				data : {
-					"oper" : "get",
+					"oper" : "post",
+				},
+				type : "post",
+				success : function(data) {
+					alert("已返回");
+				}
+			})
+		});
+		$("#b9").on("click", function() {
+			$.ajax({
+				url : "./session",
+				async : false,
+				data : {
+					"oper" : "",
+					"user" : "东东"
+				},
+				type : "post",
+				success : function(data) {
+					alert("已返回");
+				}
+			})
+		});
+		$("#b10").on("click", function() {
+			$.ajax({
+				url : "./session",
+				async : false,
+				data : {
+					"oper" : "",
+					"user" : "兵兵"
 				},
 				type : "post",
 				success : function(data) {
