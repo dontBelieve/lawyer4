@@ -1,7 +1,7 @@
 /**
  * 
  */
-package top.dongpeili.test;
+package top.dongpeili.demo;
 
 /**
  * @summary
@@ -11,10 +11,10 @@ package top.dongpeili.test;
 public class Static {
 
 	/**
-	 * 1. new对象static新  ×; 2. new对象static旧 √
+	 * 1. new对象static新 ×; 2. new对象static旧 √
 	 */
 	private static int sta = 1;
-			
+
 	public int getSta() {
 		Static.sta++;
 		System.out.println(sta);

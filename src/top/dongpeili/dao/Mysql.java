@@ -20,6 +20,11 @@ import javax.sql.DataSource;
  * @date 2017年11月20日
  */
 public class Mysql {
+	
+	/**
+	 * 用PrepareStatement可防止SQL注入供给, 等我SQL注入攻击成功了再改
+	 * 据说比statement要快一些, 测试结果差不多, 或许是测试方法不对
+	 */
 
 	/**
 	 * @summary 增删改

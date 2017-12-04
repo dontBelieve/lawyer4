@@ -1,7 +1,7 @@
 /**
  * 
  */
-package top.dongpeili.test;
+package top.dongpeili.demo;
 
 /**
  * @summary
@@ -10,7 +10,7 @@ package top.dongpeili.test;
  */
 public class Main {
 	public static void main(String[] args) {
-		for(int i = 0; i < 10; i++) {
+		for (int i = 0; i < 10; i++) {
 			new Static().getSta();
 		}
 	}
