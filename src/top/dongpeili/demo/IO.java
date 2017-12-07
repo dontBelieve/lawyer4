@@ -11,10 +11,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.tomcat.util.http.fileupload.FileItem;
-import org.apache.tomcat.util.http.fileupload.RequestContext;
-import org.apache.tomcat.util.http.fileupload.disk.DiskFileItemFactory;
-import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
+import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 /**
  * @summary servlet的上传文件
@@ -23,6 +22,10 @@ import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
  */
 @WebServlet("/io")
 public class IO extends HttpServlet {
+
+	/**
+	 * 
+	 */
 
 	private static final long serialVersionUID = 1L;
 
@@ -82,7 +85,7 @@ public class IO extends HttpServlet {
 
 		try {
 			// 解析请求的内容提取文件数据
-			List<FileItem> formItems = upload.parseRequest((RequestContext) request);
+			List<FileItem> formItems = upload.parseRequest(request);
 
 			if (formItems != null && formItems.size() > 0) {
 				// 迭代表单数据
@@ -101,16 +104,16 @@ public class IO extends HttpServlet {
 				}
 			}
 		} catch (Exception ex) {
+			ex.printStackTrace();
 			request.setAttribute("message", "错误信息: " + ex.getMessage());
 		}
 		// 跳转到 message.jsp
-		request.getServletContext().getRequestDispatcher("/message.jsp").forward(request, response);
+		request.getServletContext().getRequestDispatcher("/demo/message.html").forward(request, response);
 	}
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		this.uploadFile(req, resp);
-		super.doGet(req, resp);
 	}
 
 	@Override
