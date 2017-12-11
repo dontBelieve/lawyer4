@@ -1,4 +1,4 @@
-package top.dongpeili.design.factory;
+package top.dongpeili.design.factory.shape;
 
 public class Square implements Shape {
 

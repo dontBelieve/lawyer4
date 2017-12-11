@@ -1,4 +1,4 @@
-package top.dongpeili.design.factory;
+package top.dongpeili.design.factory.shape;
 
 /**
  * @summary 工厂模式测试
