@@ -1,4 +1,4 @@
-package top.dongpeili.design.Adapter;
+package top.dongpeili.design.Adapter.intfc;
 
 public interface MediaPlayer {
 	public void play(String audioType, String fileName);
