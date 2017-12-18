@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @summary 测试过滤模式 
+ * @summary 测试过滤模式 .
  * 			原理相当简单, demo能跑就行
  * @date 2017年12月18日
  * @author dpl
