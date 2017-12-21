@@ -7,7 +7,7 @@ package top.dongpeili.design.Flyweigh;
  */
 public class FlyweightPatternDemo {
 	/**
-	 * 静态常量, string数组放颜色
+	 * 静态常量, string数组放颜色.
 	 */
 	private static final String colors[] = { "Red", "Green", "Blue", "White", "Black" };
 
