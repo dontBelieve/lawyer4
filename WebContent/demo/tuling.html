@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+</head>
+<body>
+	<button id="b1"></button>
+</body>
+<script>
+	$(function() {
+		$("#b1").on("click", function() {
+			$.ajax({
+				url : "http://www.tuling123.com/openapi/api",
+				async : false,
+				data : {
+					"key" : "083e37f5440347b3bf2adfd5b8317748",
+					"info" : "安娜堡在哪?",
+					"userid" : "dpl"
+				},
+				success : function(data) {
+					console.log(data);
+					alert("回调成功");
+				},
+				type : "post"
+			})
+		});
+	})
+</script>
+</html>
